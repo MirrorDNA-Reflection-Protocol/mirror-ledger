@@ -81,6 +81,12 @@ after checking, or leave them as visible test evidence (note which you did).
 
 ## 6. Acceptance test 5 — fires once and only once (Codex)
 
+> **Superseded 2026-08-10 before the first test fire:** Paul selected one
+> durable local Codex recurring task as the production scheduler. Do not load
+> this LaunchAgent while that automation is active; the repository lock is a
+> safety net, not permission to run duplicate schedulers. The plist remains a
+> parked recovery path.
+
 ```
 mkdir -p ~/.mirrordna/logs
 cp deploy/ai.mirrordna.ledger-weekly.plist ~/Library/LaunchAgents/

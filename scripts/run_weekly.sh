@@ -60,6 +60,16 @@ LOCK_HELD="1"
 STAGE="layout"
 mkdir -p "$REPO_ROOT/evidence/_incoming/$RUN_ID" "$REPO_ROOT/posts" "$REPO_ROOT/receipts" "$HOME/.mirrordna/logs"
 
+STAGE="mirrorstate"
+MIRRORSTATE_RUNTIME="$HOME/.mirrordna/scripts/mirrorstate_runtime.py"
+if [ ! -f "$MIRRORSTATE_RUNTIME" ]; then
+  log "FATAL: canonical MirrorState runtime guard is missing: $MIRRORSTATE_RUNTIME"
+  exit 78
+fi
+log "refreshing and validating the canonical MirrorState runtime guard"
+"$PYBIN" "$MIRRORSTATE_RUNTIME" ensure \
+  > "$REPO_ROOT/evidence/_incoming/$RUN_ID/mirrorstate_receipt.json"
+
 STAGE="gather"
 log "gathering evidence via headless subscription Claude ($MODEL)"
 bash "$REPO_ROOT/scripts/gather_evidence.sh"

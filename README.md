@@ -10,8 +10,11 @@ reviews and publishes manually.
 
 ## Weekly run (Mondays 12:30 IST, one shot, never a poller)
 
-`scripts/run_weekly.sh` (LaunchAgent `ai.mirrordna.ledger-weekly`):
+`scripts/run_weekly.sh` (called by the active Codex schedule; staged
+LaunchAgent `ai.mirrordna.ledger-weekly` is recovery-only):
 
+0. **State preflight** — refresh and validate the canonical MirrorState runtime
+   guard; fail closed before any model call if the proof cannot be written.
 1. **Gather** — one headless subscription-Claude call per `status: open`
    prediction, with WebSearch/WebFetch, demanding
    `{claim, url, date, quote_fragment}` JSON. URLs are deduplicated before
@@ -86,6 +89,13 @@ STATE.md           last run, blockers, repair log (EM-007 scoring input)
 ```bash
 bash /Users/pauldesai/repos/mirror-ledger/scripts/run_weekly.sh
 ```
+
+## Durable scheduler
+
+The active schedule is a local Codex recurring task, Mondays at 12:30 IST,
+which invokes the exact script above and verifies its receipt, health record,
+commit, and draft. The staged LaunchAgent remains disabled so two schedulers
+can never race; its plist is retained under `deploy/` only as a recovery path.
 
 ## Tests
 
