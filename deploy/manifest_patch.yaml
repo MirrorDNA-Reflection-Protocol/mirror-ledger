@@ -1,0 +1,34 @@
+# MANIFEST patch for the mirror-ledger weekly pipeline.
+#
+# Runtime mutations start in ~/.activemirror/body/MANIFEST.yaml (machine law).
+# This block is STAGED here rather than applied because the authoring session
+# (Claude Code, 2026-08-10) runs behind the deterministic shell gate and cannot
+# run body_lattice_sync.py --apply afterwards; applying a manifest change that
+# cannot be converged and verified in the same session would leave the control
+# plane in an unproven state.
+#
+# Executor: merge the block below under the existing `services:` key, then run
+#   python3 ~/.mirrordna/scripts/body_lattice_sync.py --apply
+# Keep status: parked until acceptance tests 1-5 pass (EXECUTOR_RUNBOOK.md),
+# then set status: active and re-run the sync.
+
+services:
+  mirror-ledger-weekly:
+    check: launchctl list ai.mirrordna.ledger-weekly 2>/dev/null | grep -q ai.mirrordna
+    command: /bin/bash /Users/pauldesai/repos/mirror-ledger/scripts/run_weekly.sh
+    depends: []
+    label: ai.mirrordna.ledger-weekly
+    log: ~/.mirrordna/logs/ledger-weekly.log
+    port: null
+    schedule_only: true
+    receipt_path: ~/.mirrordna/health/mirror_ledger_weekly.json
+    receipt_timestamp_field: generated_at
+    allowed_statuses:
+    - ok
+    - fail
+    max_age_seconds: 777600
+    run_on:
+    - paul-macbook-air
+    status: parked
+    tier: 2
+    why: "Weekly forecast-ledger pipeline (~/repos/mirror-ledger): gather -> URL-validate -> draft -> lint -> attest -> commit, Mondays 12:30 local via StartCalendarInterval; never publishes; EM-007 puts the pipeline itself on the ledger. Staged plist: /Users/pauldesai/repos/mirror-ledger/deploy/ai.mirrordna.ledger-weekly.plist"

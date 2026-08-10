@@ -1,0 +1,94 @@
+# mirror-ledger — source of truth for the public forecast ledger.
+# Humans add predictions. The pipeline only appends evidence; it never edits
+# statements, probabilities, or statuses.
+#
+# status: open | confirmed | invalidated | ambiguous
+#
+# SEEDING PROVENANCE (2026-08-10): EM-001..EM-006 were transcribed from the
+# forecast table in /Users/pauldesai/Downloads/
+# The_Electric_Mind_Public_Edition_v2.docx, SHA-256
+# dec1d29d874c705fa639733f70eae7cccdf7b68d404d970fd9e74509d314fd7a.
+# The table rows map in order to EM-001..EM-006 per the byte-identical handoff
+# files (SHA-256 53bb75a9650d90e13a6b3ce2ff8e4e3982794394589af8955adc8113ba179166).
+# Statements and criteria preserve the public table text; only the structural
+# "Confirm:" and "Wrong:" prefixes are removed. Percentages are represented as
+# decimal probabilities. The shared india-ai-power domain comes from the
+# handoff's EM-001 schema. Month/year deadlines are normalized to month-end,
+# following the handoff's explicit Mar 2027 -> 2027-03-31 mapping for EM-001.
+
+- id: EM-001
+  domain: india-ai-power
+  statement: "Listed grid EPC and metering firms show double-digit order-book conversion AND improving cash conversion (receivable days flat or falling year-on-year in aggregate)."
+  made: 2026-08-10
+  resolve_by: 2027-03-31
+  probability: 0.65
+  confirm: "FY27 filings show both."
+  invalidate: "conversion stalls, or growth arrives only with ballooning receivables."
+  status: open
+  evidence: []
+
+- id: EM-002
+  domain: india-ai-power
+  statement: "At least five distinct hyperscale Indian campuses (across at least three operators) disclose dedicated EHV substations, captive supply, or firm round-the-clock power structures."
+  made: 2026-08-10
+  resolve_by: 2027-12-31
+  probability: 0.70
+  confirm: "utility or company filings."
+  invalidate: "fewer than five; ordinary distribution connections dominate."
+  status: open
+  evidence: []
+
+- id: EM-003
+  domain: india-ai-power
+  statement: "A marquee data-centre cluster is publicly delayed by power, water, land or right-of-way — not chip supply."
+  made: 2026-08-10
+  resolve_by: 2028-12-31
+  probability: 0.70
+  confirm: "disclosed schedule slip citing those causes."
+  invalidate: "all major projects commission on time."
+  status: open
+  evidence: []
+
+- id: EM-004
+  domain: india-ai-power
+  statement: "Operational Indian data-centre capacity reaches 8–12GW; AI-specific capacity exceeds 4GW."
+  made: 2026-08-10
+  resolve_by: 2030-03-31
+  probability: 0.60
+  confirm: "independent capacity audit."
+  invalidate: "operational capacity remains below 8GW."
+  status: open
+  evidence: []
+
+- id: EM-005
+  domain: india-ai-power
+  statement: "Firm clean-power contracts and storage grow faster than merchant electricity volumes at the major data-centre nodes."
+  made: 2026-08-10
+  resolve_by: 2030-03-31
+  probability: 0.65
+  confirm: "PPA and BESS award data."
+  invalidate: "spot power becomes the dominant procurement route."
+  status: open
+  evidence: []
+
+- id: EM-006
+  domain: india-ai-power
+  statement: "The best risk-adjusted listed-equity returns in the theme came from the broader grid stack, not from the highest-multiple 'AI power' equipment names as priced in mid-2026."
+  made: 2026-08-10
+  resolve_by: 2032-03-31
+  probability: 0.60
+  confirm: "total-return comparison from Aug 2026 baseline."
+  invalidate: "premium multiples keep expanding with superior earnings."
+  status: open
+  evidence: []
+
+- id: EM-007
+  domain: mirrordna-infra
+  statement: "This pipeline produces 4 consecutive weekly updates with zero fabricated citations and zero manual repairs to the pipeline itself (review+publish excluded)."
+  made: 2026-08-10
+  resolve_by: 2026-09-14
+  probability: 0.60
+  confirm: "4 receipts in receipts/, all evidence URLs spot-check live, STATE.md shows no repair entries."
+  invalidate: "Any fabricated source, any run requiring code/config repair, or a missed week."
+  status: open
+  evidence: []

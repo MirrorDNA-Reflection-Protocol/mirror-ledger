@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ai.mirrordna.ledger-weekly</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/pauldesai/repos/mirror-ledger/scripts/run_weekly.sh</string>
+    </array>
+    <!-- Mondays 12:30 local time (machine runs IST — verify with `date +%Z`
+         before install). launchd fires missed events once on wake, which is
+         the desired one-shot-per-week behaviour. Never a poller. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>1</integer>
+        <key>Hour</key>
+        <integer>12</integer>
+        <key>Minute</key>
+        <integer>30</integer>
+    </dict>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>WorkingDirectory</key>
+    <string>/Users/pauldesai/repos/mirror-ledger</string>
+    <key>StandardOutPath</key>
+    <string>/Users/pauldesai/.mirrordna/logs/ledger-weekly.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/pauldesai/.mirrordna/logs/ledger-weekly.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/pauldesai/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>/Users/pauldesai</string>
+    </dict>
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>

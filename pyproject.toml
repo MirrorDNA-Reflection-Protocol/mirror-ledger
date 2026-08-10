@@ -1,0 +1,13 @@
+[project]
+name = "mirror-ledger"
+version = "0.1.0"
+description = "Weekly forecast-ledger pipeline: URL-verified evidence, drafted updates, attestation receipts. Never publishes."
+requires-python = ">=3.9"
+dependencies = ["pyyaml>=6.0"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
