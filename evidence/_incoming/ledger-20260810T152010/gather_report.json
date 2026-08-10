@@ -1,0 +1,46 @@
+{
+  "run_id": "ledger-20260810T152010",
+  "started_at": "2026-08-10T09:50:10.227161+00:00",
+  "predictions": {
+    "EM-001": {
+      "status": "ok",
+      "items": 4,
+      "notes": []
+    },
+    "EM-002": {
+      "status": "ok",
+      "items": 0,
+      "notes": []
+    },
+    "EM-003": {
+      "status": "ok",
+      "items": 6,
+      "notes": []
+    },
+    "EM-004": {
+      "status": "ok",
+      "items": 3,
+      "notes": []
+    },
+    "EM-005": {
+      "status": "ok",
+      "items": 4,
+      "notes": []
+    },
+    "EM-006": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] Preparing session context...\n[mirror-code] [organism] claude pickup=no body=ok(29m) surfaces=ok(0m) graph=ok(0m) mirrorstate=ok(1442m) always_know=ok skills=83 streams=0\n[mirror-code] [organism] warning: optional ollama registry unavailable: <urlopen error [Errno 61] Connection refused"
+      ]
+    },
+    "EM-007": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] Preparing session context...\n[mirror-code] [organism] claude pickup=no body=ok(29m) surfaces=ok(0m) graph=ok(0m) mirrorstate=ok(1442m) always_know=ok skills=83 streams=0\n[mirror-code] [organism] warning: optional ollama registry unavailable: <urlopen error [Errno 61] Connection refused"
+      ]
+    }
+  },
+  "finished_at": "2026-08-10T10:16:27.586700+00:00"
+}

@@ -1,0 +1,25 @@
+- run_id: ledger-20260810T152010
+  gathered_at: '2026-08-10T10:16:27.730386+00:00'
+  claim: Power Grid Corporation Q1 FY27 receivable days fell to 12.11 from 19.41 a
+    year earlier, with a collection realization rate of 104%.
+  url: https://www.investing.com/news/company-news/power-grid-q1-fy27-slides-strong-execution-amid-regulatory-headwinds-93CH-4845213
+  date: '2026-08-07'
+  quote_fragment: 'Receivable days: 12.11 days (improved from 19.41 days in Q1 FY2026)'
+  http_status: 200
+- run_id: ledger-20260810T152010
+  gathered_at: '2026-08-10T10:16:27.730386+00:00'
+  claim: KEC International won ₹1,063 crore in new orders including a 400 kV transmission
+    line in Africa and tower supply in the Americas.
+  url: https://scanx.trade/stock-market-news/companies/kec-international-wins-rs-1063-crore-order-from-various-clients/47321535
+  date: '2026-08-03'
+  quote_fragment: a 400 kV transmission line in Africa, supply of towers and hardware
+    in the Americas
+  http_status: 200
+- run_id: ledger-20260810T152010
+  gathered_at: '2026-08-10T10:16:27.730386+00:00'
+  claim: KEC International Q1 FY27 board meeting scheduled for August 10 with FY26-end
+    order book at ₹36,267 crore and earnings call set for August 11.
+  url: https://scanx.trade/stock-market-news/companies/kec-international-q1-results-earnings-call-scheduled-for-aug-11/47296290
+  date: '2026-08-03'
+  quote_fragment: 'Order book: ₹36,267 Crore'
+  http_status: 200

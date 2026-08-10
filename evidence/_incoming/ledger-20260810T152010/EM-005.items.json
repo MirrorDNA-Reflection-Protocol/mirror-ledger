@@ -1,0 +1,26 @@
+[
+  {
+    "claim": "NRG disclosed alignment on principal commercial terms for a 1.2 GW combined-cycle gas plant in Texas under a 15-year capacity-payment contract with an unnamed hyperscaler, structured so 95%+ of cash flow comes from capacity fees rather than merchant energy sales.",
+    "url": "https://www.utilitydive.com/news/nrg-nears-12-gw-hyperscaler-deal-amid-texas-data-center-pause/827212/",
+    "date": "2026-08-06",
+    "quote_fragment": "We're paid for the megawatts we build and make available, not for how much the data center runs."
+  },
+  {
+    "claim": "PowerBank's BESS 903 battery storage project in Ontario secured official plan amendment and zoning bylaw amendment approvals, advancing toward construction under a 22-year IESO capacity contract.",
+    "url": "https://www.prnewswire.com/news-releases/bess-903-project-passes-major-permitting-milestone-advancing-powerbanks-ontario-battery-storage-pipeline-302840683.html",
+    "date": "2026-08-04",
+    "quote_fragment": "These approvals conclude the longest and most complex phase of the permitting process"
+  },
+  {
+    "claim": "Brookfield and NextEra Energy announced a 1.2 GW AI campus at the former Paducah Gaseous Diffusion Plant in Kentucky with dedicated on-site power generation.",
+    "url": "https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-august-2026",
+    "date": "2026-08-04",
+    "quote_fragment": "dedicated on-site power generation for the project"
+  },
+  {
+    "claim": "Elea Data Centers announced the Amazon region's first AI-neutral data center in Belém, Brazil, powered entirely by renewable energy with 7.5 MW initial capacity and Q2 2027 operations target.",
+    "url": "https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-august-2026",
+    "date": "2026-08-04",
+    "quote_fragment": "powered entirely by renewable energy, with operations slated for Q2 2027 and an initial capacity of 7.5 MW"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "claim": "Texas Governor Abbott paused all new data center grid interconnections pending ERCOT and PUCT audit of energy and water usage.",
+    "url": "https://techcrunch.com/2026/08/04/texas-halts-new-data-centers-as-governor-calls-for-audits/",
+    "date": "2026-08-04",
+    "quote_fragment": "ERCOT is tracking 474 gigawatts of new connection requests. About 90% of those are data centers"
+  },
+  {
+    "claim": "ERCOT halted its batch-zero transmission planning study for large-load data centers in response to the Abbott directive.",
+    "url": "https://natlawreview.com/article/governor-abbott-pauses-texas-data-center-interconnections-and-calls-verification",
+    "date": "2026-08-05",
+    "quote_fragment": "ERCOT has announced through a spokesperson that it will halt its 'batch zero' transmission planning study"
+  },
+  {
+    "claim": "Texas interconnection queue requests total approximately 474 GW, more than five times ERCOT's record peak electricity demand.",
+    "url": "https://www.utilitydive.com/news/texas-hits-pause-data-center-interconnections/827046/",
+    "date": "2026-08-05",
+    "quote_fragment": "is more than five times Texas' record peak electricity demand for ERCOT"
+  },
+  {
+    "claim": "Abbott stated any data center project failing PUCT and ERCOT requirements must be denied connection to the Texas grid, citing water reuse and neighbor impacts.",
+    "url": "https://www.dailysignal.com/2026/08/06/abbott-orders-audit-of-data-centers/",
+    "date": "2026-08-06",
+    "quote_fragment": "Any project that fails to comply with the requirements set forth by the PUCT and ERCOT...must be denied connection"
+  },
+  {
+    "claim": "Data center developers with land under contract tied to development schedules were advised to review agreements due to the indefinite interconnection pause.",
+    "url": "https://www.troutman.com/insights/texas-hits-pause-on-data-center-grid-connections-amid-growing-oversight-push/",
+    "date": "2026-08-04",
+    "quote_fragment": "Real estate investors and developers with land under contract, option agreements, or purchase commitments tied to data center development schedules"
+  },
+  {
+    "claim": "NRG is negotiating a 1.2 GW deal with a hyperscaler as part of a broader bring-your-own-power strategy amid the Texas interconnection pause.",
+    "url": "https://www.troutman.com/insights/nrg-nears-1-2-gw-hyperscaler-deal-amid-texas-data-center-pause/",
+    "date": "2026-08-06",
+    "quote_fragment": "NRG's broader BYOP strategy"
+  }
+]

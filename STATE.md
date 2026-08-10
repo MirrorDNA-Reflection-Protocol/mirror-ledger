@@ -1,6 +1,6 @@
 # mirror-ledger STATE
 
-Last run: never (scaffolded 2026-08-10; first scheduled run is the Monday 12:30 IST after activation — see deploy/EXECUTOR_RUNBOOK.md)
+Last run: 2026-08-10 | ledger-20260810T152010 | status ok | gathered 17 | validated 16 | rejected 1
 
 Status: preactivation_repair_in_progress
 
