@@ -47,7 +47,17 @@ def main():
     counts = {}
     if summary_path.exists():
         loaded = json.loads(summary_path.read_text(encoding="utf-8"))
-        counts = {k: loaded.get(k) for k in ("gathered", "validated", "rejected")}
+        counts = {
+            k: loaded.get(k)
+            for k in (
+                "gathered",
+                "validated",
+                "rejected",
+                "gather_calls",
+                "gather_successes",
+                "gather_gaps",
+            )
+        }
 
     post_path = repo_root / "posts" / f"{run_date}.md"
     receipt = {

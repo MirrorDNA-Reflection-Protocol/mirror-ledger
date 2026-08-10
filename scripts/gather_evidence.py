@@ -21,7 +21,7 @@ from pathlib import Path
 
 PROMPT_TEMPLATE = """You are the evidence gatherer for a public forecast ledger. Work ONLY with sources you can actually open on the live web right now.
 
-PREDICTION {pid}: {statement}
+PREDICTION {pid} (domain: {domain}): {statement}
 Confirmed when: {confirm}
 Invalidated when: {invalidate}
 
@@ -33,6 +33,7 @@ Hard rules:
 - If nothing verifiable exists this week, return exactly: []
 - Never fabricate, reconstruct, or approximate a URL. Returning [] is always better than inventing anything.
 - No price targets, tickers, or buy/sell language in claims. Events and filings only.
+- For the india-ai-power domain, every item must directly concern India, an India-based project or market, an Indian company's relevant operations, or an Indian-listed firm. Global analogies alone are out of scope. Make that India/Indian connection explicit in the claim.
 """
 
 
@@ -60,8 +61,9 @@ def extract_items(result_text):
     return parsed if isinstance(parsed, list) else None
 
 
-def clean_items(raw_items, report_notes):
+def clean_items(raw_items, report_notes, required_claim_terms=()):
     items = []
+    seen_urls = set()
     for item in raw_items:
         if not isinstance(item, dict):
             report_notes.append("dropped non-object item")
@@ -71,6 +73,14 @@ def clean_items(raw_items, report_notes):
         if not url.lower().startswith(("http://", "https://")) or not claim:
             report_notes.append(f"dropped item without usable url/claim: {url[:80]!r}")
             continue
+        if required_claim_terms and not any(term.casefold() in claim.casefold() for term in required_claim_terms):
+            report_notes.append(f"dropped out-of-scope claim without India/Indian marker: {url[:80]!r}")
+            continue
+        dedupe_key = url.rstrip("/").casefold()
+        if dedupe_key in seen_urls:
+            report_notes.append(f"dropped duplicate url: {url[:80]!r}")
+            continue
+        seen_urls.add(dedupe_key)
         items.append(
             {
                 "claim": claim,
@@ -106,6 +116,7 @@ def main():
         pid = str(pred["id"])
         prompt = PROMPT_TEMPLATE.format(
             pid=pid,
+            domain=pred.get("domain", "unspecified"),
             statement=pred.get("statement", ""),
             confirm=pred.get("confirm", ""),
             invalidate=pred.get("invalidate", ""),
@@ -129,7 +140,8 @@ def main():
             (incoming / f"{pid}.raw.json").write_text(proc.stdout or "", encoding="utf-8")
             if proc.returncode != 0:
                 entry["status"] = "error"
-                entry["notes"].append(f"claude exit {proc.returncode}: {(proc.stderr or '')[:300]}")
+                stderr_tail = (proc.stderr or "").strip()[-2000:]
+                entry["notes"].append(f"claude exit {proc.returncode}: {stderr_tail}")
             else:
                 try:
                     envelope = json.loads(proc.stdout)
@@ -141,7 +153,8 @@ def main():
                     entry["status"] = "unparseable"
                     entry["notes"].append("no JSON array found in reply")
                     raw_items = []
-                items = clean_items(raw_items, entry["notes"])
+                scope_terms = ("india", "indian") if pred.get("domain") == "india-ai-power" else ()
+                items = clean_items(raw_items, entry["notes"], scope_terms)
                 entry["items"] = len(items)
                 (incoming / f"{pid}.items.json").write_text(
                     json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8"

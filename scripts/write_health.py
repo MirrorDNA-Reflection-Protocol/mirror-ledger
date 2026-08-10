@@ -27,6 +27,9 @@ def main():
     parser.add_argument("--gathered", type=int, default=None)
     parser.add_argument("--validated", type=int, default=None)
     parser.add_argument("--rejected", type=int, default=None)
+    parser.add_argument("--gather-calls", type=int, default=None)
+    parser.add_argument("--gather-successes", type=int, default=None)
+    parser.add_argument("--gather-gaps", type=int, default=None)
     parser.add_argument("--post", default=None)
     args = parser.parse_args()
 
@@ -40,6 +43,9 @@ def main():
             "gathered": args.gathered,
             "validated": args.validated,
             "rejected": args.rejected,
+            "gather_calls": args.gather_calls,
+            "gather_successes": args.gather_successes,
+            "gather_gaps": args.gather_gaps,
         },
         "post": args.post,
     }

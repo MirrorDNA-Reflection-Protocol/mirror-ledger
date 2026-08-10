@@ -35,6 +35,22 @@ def test_clean_items_drops_urlless_and_non_http():
     assert len(notes) == 4
 
 
+def test_clean_items_deduplicates_urls_and_enforces_india_scope():
+    notes = []
+    items = gather.clean_items(
+        [
+            {"claim": "Indian grid filing disclosed an award.", "url": "https://x.example/a"},
+            {"claim": "India duplicate.", "url": "https://x.example/a/"},
+            {"claim": "Texas project was delayed.", "url": "https://x.example/texas"},
+        ],
+        notes,
+        ("india", "indian"),
+    )
+    assert [item["url"] for item in items] == ["https://x.example/a"]
+    assert any("duplicate" in note for note in notes)
+    assert any("out-of-scope" in note for note in notes)
+
+
 def test_governed_launcher_contract_is_not_overridden():
     source = Path(gather.__file__).read_text(encoding="utf-8")
     assert '"--allowed-tools"' not in source

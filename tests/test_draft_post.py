@@ -30,7 +30,16 @@ def test_draft_contains_only_validated_evidence(tmp_path):
         encoding="utf-8",
     )
     (incoming / "summary.json").write_text(
-        json.dumps({"gathered": 1, "validated": 1, "rejected": 0}),
+        json.dumps(
+            {
+                "gathered": 1,
+                "validated": 1,
+                "rejected": 0,
+                "gather_calls": 2,
+                "gather_successes": 1,
+                "gather_gaps": 1,
+            }
+        ),
         encoding="utf-8",
     )
     env = dict(os.environ)
@@ -46,3 +55,4 @@ def test_draft_contains_only_validated_evidence(tmp_path):
     assert "Second prediction." in post
     assert "No verifiable evidence surfaced this week." in post
     assert "https://example.com/unvalidated" not in post
+    assert "1/2 gather calls succeeded with 1 gaps" in post

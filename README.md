@@ -14,7 +14,8 @@ reviews and publishes manually.
 
 1. **Gather** — one headless subscription-Claude call per `status: open`
    prediction, with WebSearch/WebFetch, demanding
-   `{claim, url, date, quote_fragment}` JSON.
+   `{claim, url, date, quote_fragment}` JSON. URLs are deduplicated before
+   validation; `india-ai-power` claims must explicitly state their India scope.
 2. **Validate** — `validate_urls.py` HTTP-fetches every URL. Non-2xx or
    unreachable → `evidence/_rejected.log`, never the ledger.
 3. **Draft** — `draft_post.py` deterministically writes `posts/YYYY-MM-DD.md`
@@ -31,7 +32,8 @@ reviews and publishes manually.
    first supervised run so commits get public timestamps.
 7. **Stop.** Health receipt at `~/.mirrordna/health/mirror_ledger_weekly.json`
    (`ok|fail`). Failures also append to the repair log in `STATE.md` and never
-   auto-retry.
+   auto-retry. Partial gather-call gaps remain visible in the post footer,
+   attestation receipt, health receipt, and `STATE.md`.
 
 ## The fabrication guard (four layers)
 

@@ -34,6 +34,17 @@ def test_flow_rejects_poison_and_keeps_valid(tmp_path, monkeypatch):
         ),
         encoding="utf-8",
     )
+    (incoming / "gather_report.json").write_text(
+        json.dumps(
+            {
+                "predictions": {
+                    "EM-001": {"status": "ok"},
+                    "EM-002": {"status": "timeout"},
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
 
     def fake_fetch(url, timeout):
         return (200, "ok") if "good.example" in url else (0, "unreachable: dns")
@@ -56,3 +67,7 @@ def test_flow_rejects_poison_and_keeps_valid(tmp_path, monkeypatch):
     assert summary["gathered"] == 2
     assert summary["validated"] == 1
     assert summary["rejected"] == 1
+    assert summary["gather_calls"] == 2
+    assert summary["gather_successes"] == 1
+    assert summary["gather_gaps"] == 1
+    assert summary["gather_statuses"] == {"EM-001": "ok", "EM-002": "timeout"}

@@ -72,10 +72,13 @@ SUMMARY_FILE="$REPO_ROOT/evidence/_incoming/$RUN_ID/summary.json"
 GATHERED="$("$PYBIN" -c "import json,sys;print(json.load(open(sys.argv[1]))['gathered'])" "$SUMMARY_FILE")"
 VALIDATED="$("$PYBIN" -c "import json,sys;print(json.load(open(sys.argv[1]))['validated'])" "$SUMMARY_FILE")"
 REJECTED="$("$PYBIN" -c "import json,sys;print(json.load(open(sys.argv[1]))['rejected'])" "$SUMMARY_FILE")"
-log "evidence: gathered=$GATHERED validated=$VALIDATED rejected=$REJECTED"
+GATHER_CALLS="$("$PYBIN" -c "import json,sys;print(json.load(open(sys.argv[1])).get('gather_calls', 0))" "$SUMMARY_FILE")"
+GATHER_SUCCESSES="$("$PYBIN" -c "import json,sys;print(json.load(open(sys.argv[1])).get('gather_successes', 0))" "$SUMMARY_FILE")"
+GATHER_GAPS="$("$PYBIN" -c "import json,sys;print(json.load(open(sys.argv[1])).get('gather_gaps', 0))" "$SUMMARY_FILE")"
+log "evidence: gathered=$GATHERED validated=$VALIDATED rejected=$REJECTED gather_calls=$GATHER_SUCCESSES/$GATHER_CALLS gaps=$GATHER_GAPS"
 
 STAGE="draft"
-log "drafting weekly post from VALIDATED evidence only (drafter has no web tools)"
+log "rendering weekly post deterministically from VALIDATED evidence only"
 bash "$REPO_ROOT/scripts/draft_post.sh"
 
 STAGE="lint"
@@ -88,13 +91,19 @@ log "writing attestation receipt (repo-first, bus-second)"
 bash "$REPO_ROOT/scripts/attest.sh"
 
 STAGE="health"
-"$PYBIN" "$REPO_ROOT/scripts/write_health.py" ok "$RUN_ID" done \
-  --gathered "$GATHERED" --validated "$VALIDATED" --rejected "$REJECTED" --post "posts/$RUN_DATE.md"
+HEALTH_STAGE="done"
+if [ "$GATHER_GAPS" -gt 0 ]; then
+  HEALTH_STAGE="done_with_gather_gaps"
+fi
+"$PYBIN" "$REPO_ROOT/scripts/write_health.py" ok "$RUN_ID" "$HEALTH_STAGE" \
+  --gathered "$GATHERED" --validated "$VALIDATED" --rejected "$REJECTED" \
+  --gather-calls "$GATHER_CALLS" --gather-successes "$GATHER_SUCCESSES" --gather-gaps "$GATHER_GAPS" \
+  --post "posts/$RUN_DATE.md"
 
-"$PYBIN" - "$REPO_ROOT/STATE.md" "$RUN_ID" "$RUN_DATE" "$GATHERED" "$VALIDATED" "$REJECTED" <<'PYEOF'
+"$PYBIN" - "$REPO_ROOT/STATE.md" "$RUN_ID" "$RUN_DATE" "$GATHERED" "$VALIDATED" "$REJECTED" "$GATHER_SUCCESSES" "$GATHER_CALLS" "$GATHER_GAPS" <<'PYEOF'
 import io, re, sys
-path, run_id, run_date, gathered, validated, rejected = sys.argv[1:7]
-line = f"Last run: {run_date} | {run_id} | status ok | gathered {gathered} | validated {validated} | rejected {rejected}"
+path, run_id, run_date, gathered, validated, rejected, successes, calls, gaps = sys.argv[1:10]
+line = f"Last run: {run_date} | {run_id} | status ok | gathered {gathered} | validated {validated} | rejected {rejected} | gather calls {successes}/{calls} | gaps {gaps}"
 text = io.open(path, encoding="utf-8").read()
 new, n = re.subn(r"(?m)^Last run: .*$", line, text, count=1)
 if n == 0:

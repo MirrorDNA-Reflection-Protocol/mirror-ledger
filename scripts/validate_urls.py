@@ -74,6 +74,12 @@ def main():
     now = datetime.now(timezone.utc).isoformat()
     gathered = validated = rejected = 0
     per_prediction = {}
+    gather_report_path = incoming / "gather_report.json"
+    gather_statuses = {}
+    if gather_report_path.exists():
+        gather_report = json.loads(gather_report_path.read_text(encoding="utf-8"))
+        for pid, entry in gather_report.get("predictions", {}).items():
+            gather_statuses[pid] = entry.get("status", "unknown")
 
     for items_file in sorted(incoming.glob("*.items.json")):
         pid = items_file.name.replace(".items.json", "")
@@ -119,6 +125,10 @@ def main():
         "gathered": gathered,
         "validated": validated,
         "rejected": rejected,
+        "gather_calls": len(gather_statuses),
+        "gather_successes": sum(status == "ok" for status in gather_statuses.values()),
+        "gather_gaps": sum(status != "ok" for status in gather_statuses.values()),
+        "gather_statuses": gather_statuses,
         "per_prediction": per_prediction,
     }
     (incoming / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")

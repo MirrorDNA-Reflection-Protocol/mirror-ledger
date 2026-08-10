@@ -76,7 +76,9 @@ def main():
         f"{body}\n\n---\n"
         f"*Pipeline receipt: {summary['gathered']} evidence items gathered, "
         f"{summary['validated']} passed URL verification, {summary['rejected']} dropped "
-        f"(drops logged in `evidence/_rejected.log`). Attestation: `receipts/{RUN_ID}.json`.*\n"
+        f"(drops logged in `evidence/_rejected.log`); "
+        f"{summary.get('gather_successes', 0)}/{summary.get('gather_calls', 0)} gather calls succeeded "
+        f"with {summary.get('gather_gaps', 0)} gaps. Attestation: `receipts/{RUN_ID}.json`.*\n"
     )
     out = REPO_ROOT / "posts" / f"{RUN_DATE}.md"
     out.write_text(post, encoding="utf-8")
