@@ -1,0 +1,56 @@
+{
+  "run_id": "ledger-20260810T151651",
+  "started_at": "2026-08-10T09:46:51.307530+00:00",
+  "predictions": {
+    "EM-001": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] blocked: launcher policy forbids overriding the strict agent/session contract\n"
+      ]
+    },
+    "EM-002": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] blocked: launcher policy forbids overriding the strict agent/session contract\n"
+      ]
+    },
+    "EM-003": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] blocked: launcher policy forbids overriding the strict agent/session contract\n"
+      ]
+    },
+    "EM-004": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] blocked: launcher policy forbids overriding the strict agent/session contract\n"
+      ]
+    },
+    "EM-005": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] blocked: launcher policy forbids overriding the strict agent/session contract\n"
+      ]
+    },
+    "EM-006": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] blocked: launcher policy forbids overriding the strict agent/session contract\n"
+      ]
+    },
+    "EM-007": {
+      "status": "error",
+      "items": 0,
+      "notes": [
+        "claude exit 2: [mirror-code] blocked: launcher policy forbids overriding the strict agent/session contract\n"
+      ]
+    }
+  },
+  "finished_at": "2026-08-10T09:46:51.633155+00:00"
+}

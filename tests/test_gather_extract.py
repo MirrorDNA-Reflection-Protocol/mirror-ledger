@@ -1,5 +1,7 @@
 """Layer-1 guard: items without usable URLs are dropped before validation."""
 
+from pathlib import Path
+
 from conftest import load_script
 
 gather = load_script("gather_evidence")
@@ -31,3 +33,9 @@ def test_clean_items_drops_urlless_and_non_http():
     )
     assert [i["url"] for i in items] == ["https://x.example/a"]
     assert len(notes) == 4
+
+
+def test_governed_launcher_contract_is_not_overridden():
+    source = Path(gather.__file__).read_text(encoding="utf-8")
+    assert '"--allowed-tools"' not in source
+    assert '"--model"' not in source

@@ -17,9 +17,9 @@ reviews and publishes manually.
    `{claim, url, date, quote_fragment}` JSON.
 2. **Validate** — `validate_urls.py` HTTP-fetches every URL. Non-2xx or
    unreachable → `evidence/_rejected.log`, never the ledger.
-3. **Draft** — `draft_post.py` writes `posts/YYYY-MM-DD.md` from validated
-   evidence only; the drafting call has **no tools**, so it cannot invent or
-   fetch sources it was never given.
+3. **Draft** — `draft_post.py` deterministically writes `posts/YYYY-MM-DD.md`
+   from validated evidence only. It makes no model or tool call, so it cannot
+   invent or fetch sources it was never given.
 4. **Lint** — `lint_post.py` fails the run on ticker/price/buy-sell language
    ("buy NTPC at ₹344" kills the run) and on any URL not in the validated set.
 5. **Attest** — `attest.py` writes `receipts/<run_id>.json`
@@ -39,7 +39,7 @@ reviews and publishes manually.
 |---|---|---|
 | 1 | `gather_evidence.py` | no URL → item dropped at intake; model told `[]` beats invention |
 | 2 | `validate_urls.py` | every URL fetched live; non-2xx → `_rejected.log` |
-| 3 | `draft_post.py` | drafter gets validated items only and has no tools |
+| 3 | `draft_post.py` | deterministic renderer gets validated items only; no model/tool call |
 | 4 | `lint_post.py` | any URL outside the validated set fails the run |
 
 A fabricated citation would have to defeat all four before it could even reach
