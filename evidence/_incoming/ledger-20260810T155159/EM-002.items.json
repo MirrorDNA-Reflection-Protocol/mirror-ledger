@@ -1,0 +1,14 @@
+[
+  {
+    "claim": "Indian legal analysis published August 4 outlines three power procurement routes for data centres in India under the Electricity Act 2003, including captive power generation (Section 9) and open access, showing open access rates of ₹3.50–5.00/unit versus ₹8–11/unit commercial DISCOM tariffs.",
+    "url": "https://candourlegal.com/data-centre-power-grid-india-electricity-act-legal-framework/",
+    "date": "2026-08-04",
+    "quote_fragment": "₹3.50–₹5.00/unit (open access rate)"
+  },
+  {
+    "claim": "Microsoft launched its India South Central datacenter region in Hyderabad on August 6, disclosing over 1000 MW of multi-year Corporate Power Purchase Agreements for renewable energy specifically in India.",
+    "url": "https://news.microsoft.com/source/asia/features/microsofts-newest-india-datacenter-region-goes-live-to-power-the-countrys-ai-economy-and-enable-frontier-firms/",
+    "date": "2026-08-06",
+    "quote_fragment": "In India, Microsoft has so far entered into multiple multi-year Corporate Power Purchase Agreements"
+  }
+]

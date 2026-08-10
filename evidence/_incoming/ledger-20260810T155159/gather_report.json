@@ -1,0 +1,46 @@
+{
+  "run_id": "ledger-20260810T155159",
+  "started_at": "2026-08-10T10:21:59.345401+00:00",
+  "predictions": {
+    "EM-001": {
+      "status": "ok",
+      "items": 3,
+      "notes": [
+        "dropped duplicate url: 'https://powerpeakdigest.com/power-sector-news-roundup-for-august-4-2026/'"
+      ]
+    },
+    "EM-002": {
+      "status": "ok",
+      "items": 2,
+      "notes": []
+    },
+    "EM-003": {
+      "status": "ok",
+      "items": 2,
+      "notes": [
+        "dropped duplicate url: 'https://www.freepressjournal.in/india/googles-15-billion-andhra-pradesh-data-cen'"
+      ]
+    },
+    "EM-004": {
+      "status": "ok",
+      "items": 3,
+      "notes": []
+    },
+    "EM-005": {
+      "status": "ok",
+      "items": 4,
+      "notes": []
+    },
+    "EM-006": {
+      "status": "ok",
+      "items": 4,
+      "notes": []
+    },
+    "EM-007": {
+      "status": "ok",
+      "items": 0,
+      "notes": []
+    }
+  },
+  "finished_at": "2026-08-10T10:57:31.772485+00:00"
+}

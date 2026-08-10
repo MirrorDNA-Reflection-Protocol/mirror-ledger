@@ -1,0 +1,26 @@
+[
+  {
+    "claim": "Indian government stated data centre capacity grew four-fold from 375 MW in 2020 to about 1,575 MW, driven by AI and high-performance computing demand.",
+    "url": "https://www.tribuneindia.com/news/business/indias-data-centre-capacity-rises-over-four-fold-to-1575-mw-as-ai-demand-accelerates-govt/",
+    "date": "2026-08-05",
+    "quote_fragment": "Data Centre industry in India has grown from 375 MW in 2020 to current capacity of about 1575 MW"
+  },
+  {
+    "claim": "Mint reported that securing reliable power for Indian data centres has become harder than acquiring land, with grid infrastructure taking 3-5 years versus 12-18 months for data centre construction.",
+    "url": "https://mintnl.substack.com/p/indias-data-centre-boom-hits-a-power",
+    "date": "2026-08-03",
+    "quote_fragment": "Securing reliable power has become harder than acquiring land for data centres in India"
+  },
+  {
+    "claim": "Power Grid Corporation of India reported Q1 FY27 consolidated total income of Rs 11,697 crore and net profit of Rs 3,598 crore, with the board approving amalgamation of multiple transmission subsidiaries.",
+    "url": "https://www.angelone.in/news/stocks/power-grid-corporation-of-india-share-price-falls-over-2-after-q1-fy27-earnings-results",
+    "date": "2026-08-06",
+    "quote_fragment": "extensive amalgamation schemes involving multiple wholly-owned transmission subsidiaries"
+  },
+  {
+    "claim": "Three Indian-listed HVDC equipment makers held combined order books exceeding Rs 69,000 crore as of March 2026, but revenue recognition on large orders is deferred with GE Vernova T&D India's HVDC sales starting only near FY29.",
+    "url": "https://www.sahi.com/blogs/hvdc-stocks-india-grid-boom",
+    "date": "2026-08-06",
+    "quote_fragment": "Orders are booked now but billed years later. GE Vernova's HVDC sales start only near FY29."
+  }
+]

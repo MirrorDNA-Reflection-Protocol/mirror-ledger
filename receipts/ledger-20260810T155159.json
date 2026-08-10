@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "run_id": "ledger-20260810T155159",
+  "generated_at": "2026-08-10T10:57:56.965336+00:00",
+  "predictions_sha256": "29909f8654bb75b4062658670835382252c823ce1009c8a5ebae2a01bd79b671",
+  "evidence_tree_sha256": "d21f9fa2e67952b6ef51fa72bdd5d39b65eb264407c32e9d388930492251eb21",
+  "post_file": "posts/2026-08-10.md",
+  "post_sha256": "8472f836c0a700144f58d7ed49bbd9b3ff9d1864fe18576056d2eed933edcd14",
+  "counts": {
+    "gathered": 18,
+    "validated": 18,
+    "rejected": 0,
+    "gather_calls": 7,
+    "gather_successes": 7,
+    "gather_gaps": 0
+  },
+  "proof_class": "sha256-hash-commitment-host-clock",
+  "transport": {
+    "bus_lane": "/Users/pauldesai/.mirrordna/bus/mirror_ledger_attestations.jsonl",
+    "posted": true,
+    "error": null
+  }
+}

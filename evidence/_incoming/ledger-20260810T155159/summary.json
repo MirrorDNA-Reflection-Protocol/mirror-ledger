@@ -1,0 +1,49 @@
+{
+  "run_id": "ledger-20260810T155159",
+  "validated_at": "2026-08-10T10:57:31.857456+00:00",
+  "gathered": 18,
+  "validated": 18,
+  "rejected": 0,
+  "gather_calls": 7,
+  "gather_successes": 7,
+  "gather_gaps": 0,
+  "gather_statuses": {
+    "EM-001": "ok",
+    "EM-002": "ok",
+    "EM-003": "ok",
+    "EM-004": "ok",
+    "EM-005": "ok",
+    "EM-006": "ok",
+    "EM-007": "ok"
+  },
+  "per_prediction": {
+    "EM-001": {
+      "gathered": 3,
+      "validated": 3
+    },
+    "EM-002": {
+      "gathered": 2,
+      "validated": 2
+    },
+    "EM-003": {
+      "gathered": 2,
+      "validated": 2
+    },
+    "EM-004": {
+      "gathered": 3,
+      "validated": 3
+    },
+    "EM-005": {
+      "gathered": 4,
+      "validated": 4
+    },
+    "EM-006": {
+      "gathered": 4,
+      "validated": 4
+    },
+    "EM-007": {
+      "gathered": 0,
+      "validated": 0
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # mirror-ledger STATE
 
-Last run: 2026-08-10 | ledger-20260810T152010 | status preactivation_partial | gathered 17 | validated 16 | rejected 1 | gather calls 5/7 | gaps 2
+Last run: 2026-08-10 | ledger-20260810T155159 | status ok | gathered 18 | validated 18 | rejected 0 | gather calls 7/7 | gaps 0
 
 Status: preactivation_repair_in_progress
 
