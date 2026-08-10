@@ -87,6 +87,24 @@ STAGE="attest"
 log "writing attestation receipt (repo-first, bus-second)"
 bash "$REPO_ROOT/scripts/attest.sh"
 
+STAGE="health"
+"$PYBIN" "$REPO_ROOT/scripts/write_health.py" ok "$RUN_ID" done \
+  --gathered "$GATHERED" --validated "$VALIDATED" --rejected "$REJECTED" --post "posts/$RUN_DATE.md"
+
+"$PYBIN" - "$REPO_ROOT/STATE.md" "$RUN_ID" "$RUN_DATE" "$GATHERED" "$VALIDATED" "$REJECTED" <<'PYEOF'
+import io, re, sys
+path, run_id, run_date, gathered, validated, rejected = sys.argv[1:7]
+line = f"Last run: {run_date} | {run_id} | status ok | gathered {gathered} | validated {validated} | rejected {rejected}"
+text = io.open(path, encoding="utf-8").read()
+new, n = re.subn(r"(?m)^Last run: .*$", line, text, count=1)
+if n == 0:
+    new = line + "\n" + text
+io.open(path, "w", encoding="utf-8").write(new)
+PYEOF
+
+# Commit last so a successful run leaves all repository-owned state inside the
+# weekly commit. If this stage fails, the EXIT trap overwrites the health
+# receipt with fail and records the commit-stage failure in STATE.md.
 STAGE="commit"
 if [ -d "$REPO_ROOT/.git" ]; then
   git -C "$REPO_ROOT" add -A
@@ -110,20 +128,5 @@ else
   printf -- '- %s | run %s completed WITHOUT a git commit (.git missing — runbook step pending).\n' \
     "$(date '+%Y-%m-%d %H:%M %Z')" "$RUN_ID" >> "$REPO_ROOT/STATE.md"
 fi
-
-STAGE="health"
-"$PYBIN" "$REPO_ROOT/scripts/write_health.py" ok "$RUN_ID" done \
-  --gathered "$GATHERED" --validated "$VALIDATED" --rejected "$REJECTED" --post "posts/$RUN_DATE.md"
-
-"$PYBIN" - "$REPO_ROOT/STATE.md" "$RUN_ID" "$RUN_DATE" "$GATHERED" "$VALIDATED" "$REJECTED" <<'PYEOF'
-import io, re, sys
-path, run_id, run_date, gathered, validated, rejected = sys.argv[1:7]
-line = f"Last run: {run_date} | {run_id} | status ok | gathered {gathered} | validated {validated} | rejected {rejected}"
-text = io.open(path, encoding="utf-8").read()
-new, n = re.subn(r"(?m)^Last run: .*$", line, text, count=1)
-if n == 0:
-    new = line + "\n" + text
-io.open(path, "w", encoding="utf-8").write(new)
-PYEOF
 
 log "run complete: draft at posts/$RUN_DATE.md — awaiting Paul's review. Pipeline stops here by design."

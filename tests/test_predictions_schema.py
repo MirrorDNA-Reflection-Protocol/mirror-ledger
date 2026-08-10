@@ -118,3 +118,11 @@ def test_em007_meta_prediction_seeded_verbatim():
     assert float(em007["probability"]) == 0.60
     assert em007["resolve_by"] == datetime.date(2026, 9, 14)
     assert "4 consecutive weekly updates with zero fabricated citations" in em007["statement"]
+
+
+def test_weekly_success_state_is_written_before_commit():
+    script = (REPO_ROOT / "scripts" / "run_weekly.sh").read_text(encoding="utf-8")
+    health_stage = script.index('STAGE="health"')
+    state_update = script.index('line = f"Last run:')
+    commit_stage = script.index('STAGE="commit"')
+    assert health_stage < state_update < commit_stage
