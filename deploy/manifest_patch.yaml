@@ -7,10 +7,20 @@
 # cannot be converged and verified in the same session would leave the control
 # plane in an unproven state.
 #
-# Executor: merge the block below under the existing `services:` key, then run
-#   python3 ~/.mirrordna/scripts/body_lattice_sync.py --apply
-# Keep status: parked until acceptance tests 1-5 pass (EXECUTOR_RUNBOOK.md),
-# then set status: active and re-run the sync.
+# Paul selected the durable Codex automation `mirror-ledger-weekly` on
+# 2026-08-10. This LaunchAgent block is now a PARKED RECOVERY PATH ONLY. Never
+# set it active while the Codex automation is active; two schedulers would race
+# and create a false repair entry. The active Codex schedule is recorded under
+# `scheduled: mirror-ledger-weekly-codex` in the body MANIFEST.
+
+scheduled:
+  mirror-ledger-weekly-codex:
+    command: /bin/bash /Users/pauldesai/repos/mirror-ledger/scripts/run_weekly.sh
+    schedule: Mondays 12:30 local time (IST on paul-macbook-air)
+    scheduler: codex
+    automation_id: mirror-ledger-weekly
+    automation_path: ~/.codex/automations/mirror-ledger-weekly/automation.toml
+    why: "Durable single-owner scheduler for the public forecast ledger; the LaunchAgent recovery path stays parked and disabled to prevent duplicate runs."
 
 services:
   mirror-ledger-weekly:
@@ -31,4 +41,4 @@ services:
     - paul-macbook-air
     status: parked
     tier: 2
-    why: "Weekly forecast-ledger pipeline (~/repos/mirror-ledger): gather -> URL-validate -> draft -> lint -> attest -> commit, Mondays 12:30 local via StartCalendarInterval; never publishes; EM-007 puts the pipeline itself on the ledger. Staged plist: /Users/pauldesai/repos/mirror-ledger/deploy/ai.mirrordna.ledger-weekly.plist"
+    why: "PARKED RECOVERY PATH ONLY for the weekly forecast ledger. Active scheduling moved by Paul on 2026-08-10 to Codex automation mirror-ledger-weekly, Mondays 12:30 local. Keep this LaunchAgent disabled and never run both schedulers."
