@@ -49,4 +49,5 @@ abstract, machine-readable citation metadata and—when warranted—a versioned
 archive or DOI. Publishing frequency is not evidence of quality and does not
 guarantee indexing or citation.
 
-Use [`TEMPLATE.md`](TEMPLATE.md) for every brief.
+Use [`TEMPLATE.md`](TEMPLATE.md) for every brief. The current, revalidation-only
+research backlog is in [`TOPIC_QUEUE.md`](TOPIC_QUEUE.md).
