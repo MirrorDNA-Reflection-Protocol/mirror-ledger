@@ -20,6 +20,20 @@ reviews and publishes manually.
 Keywords: India AI infrastructure, data-centre power, power grid, substations,
 transformers, transmission, energy storage, investment thesis, forecast ledger.
 
+## Research-drop cadence
+
+Mirror Ledger uses a four-day evidence rhythm instead of daily commentary:
+
+- **Monday:** scored forecast-ledger update.
+- **Wednesday:** international AI infrastructure and sovereign capacity.
+- **Friday:** crypto and digital-asset infrastructure.
+- **Sunday:** reflective AI, agent governance, memory, identity and trust.
+
+The three research-drop runs prepare reviewable, hash-bound drafts under
+[`drops/`](drops/README.md). They do not publish automatically. A public release
+requires review of the exact brief and its receipt, followed by an explicit
+content/hash approval. This keeps cadence from outrunning evidence quality.
+
 ## Weekly run (Mondays 12:30 IST, one shot, never a poller)
 
 `scripts/run_weekly.sh` (called by the active Codex schedule; staged
@@ -69,6 +83,7 @@ predictions.yaml   source of truth; humans edit, pipeline only reads
 evidence/          EM-XXX.yaml validated items; _rejected.log; _incoming/<run>/ raw audit
 posts/             drafted updates (never auto-published)
 papers/            manually approved, published long-form research
+drops/             citable research-drop method, template and approved briefs
 receipts/          attestation receipts per run
 scripts/           pipeline (bash entry points + python workers)
 tests/             pytest suite incl. poison-URL and finance-lint fixtures
