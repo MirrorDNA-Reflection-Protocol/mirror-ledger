@@ -8,6 +8,10 @@ clean weekly runs, zero fabricated citations, zero manual repairs.
 **The pipeline never publishes.** Every run ends at a draft plus receipts; Paul
 reviews and publishes manually.
 
+## Published thesis
+
+- [The Electric Mind — India AI–Power Investment Thesis](papers/the-electric-mind-2026/README.md)
+
 ## Weekly run (Mondays 12:30 IST, one shot, never a poller)
 
 `scripts/run_weekly.sh` (called by the active Codex schedule; staged
@@ -56,6 +60,7 @@ the *draft* that Paul still reviews by hand.
 predictions.yaml   source of truth; humans edit, pipeline only reads
 evidence/          EM-XXX.yaml validated items; _rejected.log; _incoming/<run>/ raw audit
 posts/             drafted updates (never auto-published)
+papers/            manually approved, published long-form research
 receipts/          attestation receipts per run
 scripts/           pipeline (bash entry points + python workers)
 tests/             pytest suite incl. poison-URL and finance-lint fixtures
