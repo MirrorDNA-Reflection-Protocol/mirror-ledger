@@ -10,7 +10,15 @@ reviews and publishes manually.
 
 ## Published thesis
 
-- [The Electric Mind — India AI–Power Investment Thesis](papers/the-electric-mind-2026/README.md)
+- **[The Electric Mind — India AI–Power Investment Thesis](papers/the-electric-mind-2026/README.md)**
+  by Paul Desai argues that India's binding AI-infrastructure constraint will be
+  firm, high-quality power delivered to specific nodes: substations,
+  transmission, transformers, storage, metering and grid software. The public
+  archive includes the original PDF, an indexable public edition, its
+  publication receipt and a dated forecast ledger.
+
+Keywords: India AI infrastructure, data-centre power, power grid, substations,
+transformers, transmission, energy storage, investment thesis, forecast ledger.
 
 ## Weekly run (Mondays 12:30 IST, one shot, never a poller)
 

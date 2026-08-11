@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use or discuss this research, please cite it as below."
+type: report
+title: "The Electric Mind: Why India's AI Boom Will Be Built in Substations Before Server Halls"
+version: 1.0.0
+date-released: 2026-08-11
+authors:
+  - family-names: Desai
+    given-names: Paul
+abstract: >-
+  A public thesis arguing that firm, high-quality power delivered to specific
+  physical nodes will be a binding constraint on India's AI infrastructure
+  build-out, with a dated forecast ledger for scoring the argument through
+  2032.
+keywords:
+  - India
+  - artificial intelligence
+  - AI infrastructure
+  - data centres
+  - power grid
+  - substations
+  - transformers
+  - transmission
+  - energy storage
+  - forecasting
+repository-code: "https://github.com/MirrorDNA-Reflection-Protocol/mirror-ledger"
+url: "https://github.com/MirrorDNA-Reflection-Protocol/mirror-ledger/tree/main/papers/the-electric-mind-2026"
