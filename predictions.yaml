@@ -92,3 +92,74 @@
   invalidate: "Any fabricated source, any run requiring code/config repair, or a missed week."
   status: open
   evidence: []
+
+# V1.2 PUBLICATION PROVENANCE (2026-08-11): EM-1201..EM-1206 are the
+# materially revised forecasts published in The Electric Mind v1.2 under
+# DOI 10.5281/zenodo.21889238. The original EM-001..EM-006 remain frozen and
+# scoreable above. These new entries use the repository's EM-* evidence lane.
+
+- id: EM-1201
+  domain: india-ai-power
+  statement: "Grid EPC and metering firms grow while converting cash: aggregate revenue growth of at least 10% year-on-year in FY2026-27, AND aggregate receivable days flat or falling. Universe: Indian-listed companies deriving a majority of FY2025-26 consolidated revenue from power T&D EPC, transformers, switchgear, conductors or smart metering; constituent list frozen and published in the first scoring note, before FY27 results are filed."
+  made: 2026-08-11
+  resolve_by: 2027-03-31
+  probability: 0.65
+  confirm: "FY27 annual filings show both conditions in aggregate."
+  invalidate: "growth below 10%, or receivable days rise."
+  status: open
+  evidence: []
+
+- id: EM-1202
+  domain: india-ai-power
+  statement: "At least five distinct Indian data-centre campuses of 100 MW or more planned capacity, across at least three operators, disclose dedicated EHV substations, captive supply, or contracted firm round-the-clock power structures."
+  made: 2026-08-11
+  resolve_by: 2027-12-31
+  probability: 0.70
+  confirm: "company, utility or regulatory disclosures; at least five campuses across at least three operators."
+  invalidate: "fewer than five; ordinary distribution connections dominate."
+  status: open
+  evidence: []
+
+- id: EM-1203
+  domain: india-ai-power
+  statement: "A marquee data-centre cluster is publicly delayed by six months or more, with the operator, utility or a government body attributing the slip to power, water, land or right-of-way — not chip supply."
+  made: 2026-08-11
+  resolve_by: 2028-12-31
+  probability: 0.70
+  confirm: "a disclosed schedule slip of at least six months citing those causes."
+  invalidate: "no qualifying slip is disclosed."
+  status: open
+  evidence: []
+
+- id: EM-1204
+  domain: india-ai-power
+  statement: "Operational Indian data-centre capacity reaches at least 8 GW, AND AI-specific capacity exceeds 4 GW, both measured on the Wood Mackenzie series basis (2.2 GW total and 275 MW AI-dedicated in 2025)."
+  made: 2026-08-11
+  resolve_by: 2030-03-31
+  probability: 0.60
+  confirm: "both conditions hold on the named series; outcomes above 12 GW also confirm."
+  invalidate: "either condition fails on the named basis."
+  status: open
+  evidence: []
+
+- id: EM-1205
+  domain: india-ai-power
+  statement: "Cumulative awarded firm/round-the-clock clean-power capacity (RTC/FDRE tenders) plus standalone battery storage grows faster in percentage terms over FY2027-FY2030 than total short-term power-market volumes."
+  made: 2026-08-11
+  resolve_by: 2030-03-31
+  probability: 0.65
+  confirm: "tender-award tallies of SECI, NTPC and state agencies grow faster than short-term market volumes in CERC market-monitoring reports."
+  invalidate: "short-term market volumes grow faster."
+  status: open
+  evidence: []
+
+- id: EM-1206
+  domain: india-ai-power
+  statement: "Over FY2026-FY2031, the broader grid delivery stack — T&D engineering firms, transmission owners, metering operators and power-sector lenders — records aggregate operating-profit growth at least equal to that of the grid-equipment layer alone (transformer, switchgear and conductor makers)."
+  made: 2026-08-11
+  resolve_by: 2032-03-31
+  probability: 0.60
+  confirm: "aggregate reported operating profit from annual filings of the universes frozen under EM-1201."
+  invalidate: "the equipment layer's operating-profit growth exceeds the broader stack's."
+  status: open
+  evidence: []

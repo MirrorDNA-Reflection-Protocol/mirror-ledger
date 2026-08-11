@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "title": "The Electric Mind: Why India's AI boom will be built in substations before server halls",
+    "upload_type": "publication",
+    "publication_type": "preprint",
+    "publication_date": "2026-08-11",
+    "creators": [
+      {
+        "name": "Desai, Paul"
+      }
+    ],
+    "description": "<p><strong>Abstract.</strong> A public thesis arguing that firm, high-quality power delivered to specific physical nodes will be a binding constraint on India's AI infrastructure build-out, with six dated forecasts for public scoring through 2032.</p><p>The paper argues that the relevant bottleneck is local grid delivery—substations, transmission, transformers, storage, metering and connection readiness—rather than national generation adequacy alone. It sets out a falsifiable forecast ledger and a public scoring commitment.</p><p><strong>Version boundary.</strong> Version 1.2 assigns the materially revised calls new ledger identifiers EM-1201 through EM-1206. The original EM-001 through EM-006 entries remain frozen and scoreable. The companion public ledger is available at <a href=\"https://github.com/MirrorDNA-Reflection-Protocol/mirror-ledger\">Mirror Ledger</a>.</p><p><strong>Evidence boundary.</strong> References were re-verified on 11 August 2026. The paper expressly identifies the claims that remain dependent on secondary reporting or an inferred measurement basis.</p><p>This is commentary and analysis, not professional or personalised investment advice, a solicitation, or a recommendation. It names no securities as recommendations and sets no target prices or portfolio weights.</p>",
+    "access_right": "open",
+    "license": "cc-by-4.0",
+    "keywords": [
+      "India",
+      "artificial intelligence",
+      "AI infrastructure",
+      "data centres",
+      "electricity grid",
+      "substations",
+      "transmission",
+      "transformers",
+      "energy storage",
+      "power systems",
+      "forecasting",
+      "forecast ledger"
+    ],
+    "version": "1.2",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/MirrorDNA-Reflection-Protocol/mirror-ledger",
+        "relation": "isSupplementedBy",
+        "resource_type": "other"
+      }
+    ]
+  }
+}
